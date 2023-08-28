@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+    <div class="for_service_details">
+
+    <h1>URL Shortener</h1>
+        <div class="car-info">
+            <form method="post">
+            {% csrf_token %}
+            <input type="url" name="original_url" placeholder="Enter URL" required>
+            <button class="card-btn" type="submit">Shorten</button>
+            </form>
+        </div>
+        <div class="claim-car-button">
+            {% if short_url %}
+                <p>Short URL: <a href="{{ short_url }}">{{ short_url }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
